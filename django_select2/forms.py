@@ -89,7 +89,7 @@ class Select2Mixin(object):
 
         attrs.setdefault('data-minimum-input-length', 0)
 	
-	if 'style' in attrs:
+        if 'style' in attrs:
             if 'width' in attrs['style']:
                 pass
             else:
@@ -260,13 +260,15 @@ class HeavySelect2Mixin(object):
         attrs.setdefault('data-minimum-input-length', 2)
         if self.dependent_fields:
             attrs.setdefault('data-select2-dependent-fields', " ".join(self.dependent_fields))
-	if 'style' in attrs:
+
+        if 'style' in attrs:
             if 'width' in attrs['style']:
                 pass
             else:
                 attrs['style'] += 'width:100%'
         else:
             attrs['style'] = 'width: 100%'
+
         attrs['class'] += ' django-select2-heavy'
         return attrs
 
