@@ -95,7 +95,7 @@ class Select2Mixin(object):
             attrs['style'] = 'width: 100%'
         else:
             if 'width:' not in style:
-                attrs['style'] = style.strip(';') + '; width: 100%'
+                attrs['style'] = style.strip().strip(';') + '; width: 100%'
 
 
         if 'class' in attrs:
@@ -267,7 +267,7 @@ class HeavySelect2Mixin(object):
             attrs['style'] = 'width: 100%'
         else:
             if 'width:' not in style:
-                attrs['style'] = style.strip(';') + '; width: 100%'
+                attrs['style'] = style.strip().strip(';') + '; width: 100%'
 
         attrs['class'] += ' django-select2-heavy'
         return attrs
