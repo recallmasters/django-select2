@@ -92,7 +92,7 @@ class Select2Mixin(object):
         style = self.attrs.get('style', None)
         if style is not None:
             if 'width:' not in style:
-                self.attrs['style'] = style.strip(';') + '; width: 100%'
+                self.attrs['style'] = style.strip().strip(';') + '; width: 100%'
         else:
             self.attrs['style'] = 'width:100%'
 
@@ -263,7 +263,7 @@ class HeavySelect2Mixin(object):
         style = self.attrs.get('style', None)
         if style is not None:
             if 'width:' not in style:
-                self.attrs['style'] = style.strip(';') + '; width: 100%'
+                self.attrs['style'] = style.strip().strip(';') + '; width: 100%'
         else:
             self.attrs['style'] = 'width:100%'
 
