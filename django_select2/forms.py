@@ -89,12 +89,13 @@ class Select2Mixin(object):
 
         attrs.setdefault('data-minimum-input-length', 0)
 
-        style = self.attrs.get('style', None)
-        if style is not None:
-            if 'width:' not in style:
-                self.attrs['style'] = style.strip().strip(';') + '; width: 100%'
+        try:
+            style = attrs['style']
+        except KeyError:
+            attrs['style'] = 'width: 100%'
         else:
-            self.attrs['style'] = 'width:100%'
+            if 'width:' not in style:
+                attrs['style'] = style.strip(';') + '; width: 100%'
 
 
         if 'class' in attrs:
@@ -260,12 +261,13 @@ class HeavySelect2Mixin(object):
         if self.dependent_fields:
             attrs.setdefault('data-select2-dependent-fields', " ".join(self.dependent_fields))
 
-        style = self.attrs.get('style', None)
-        if style is not None:
-            if 'width:' not in style:
-                self.attrs['style'] = style.strip().strip(';') + '; width: 100%'
+        try:
+            style = attrs['style']
+        except KeyError:
+            attrs['style'] = 'width: 100%'
         else:
-            self.attrs['style'] = 'width:100%'
+            if 'width:' not in style:
+                attrs['style'] = style.strip(';') + '; width: 100%'
 
         attrs['class'] += ' django-select2-heavy'
         return attrs
